@@ -1,8 +1,9 @@
+import PageAnimationWrapper from "../components/PageAnimationWrapper";
 import Hero from "../components/Hero";
 
 function About() {
   return (
-    <>
+    <PageAnimationWrapper>
       <Hero $background="">
         <Hero.Title>About us</Hero.Title>
         <Hero.Text>
@@ -12,7 +13,7 @@ function About() {
           shipment.
         </Hero.Text>
       </Hero>
-    </>
+    </PageAnimationWrapper>
   );
 }
 

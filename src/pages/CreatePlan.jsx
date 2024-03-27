@@ -1,8 +1,9 @@
+import PageAnimationWrapper from "../components/PageAnimationWrapper";
 import Hero from "../components/Hero";
 
 function CreatePlan() {
   return (
-    <>
+    <PageAnimationWrapper>
       <Hero $background="blackcup">
         <Hero.Title $isMain>Create a plan</Hero.Title>
         <Hero.Text>
@@ -11,7 +12,7 @@ function CreatePlan() {
           fresh to your door.
         </Hero.Text>
       </Hero>
-    </>
+    </PageAnimationWrapper>
   );
 }
 

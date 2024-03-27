@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import CreatePlan from "./pages/CreatePlan";
 import { BASE_URL } from "./constants";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
   const router = createBrowserRouter(
@@ -29,7 +30,11 @@ function App() {
     { basename: BASE_URL }
   );
 
-  return <RouterProvider router={router} />;
+  return (
+    <AnimatePresence>
+      <RouterProvider router={router} />
+    </AnimatePresence>
+  );
 }
 
 export default App;

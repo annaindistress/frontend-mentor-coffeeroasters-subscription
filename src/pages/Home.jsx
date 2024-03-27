@@ -1,9 +1,10 @@
+import PageAnimationWrapper from "../components/PageAnimationWrapper";
 import Hero from "../components/Hero";
 import Button from "../components/Button";
 
 function Home() {
   return (
-    <>
+    <PageAnimationWrapper>
       <Hero $background="coffeepress">
         <Hero.Title $isMain>
           Great coffee
@@ -17,7 +18,7 @@ function Home() {
         </Hero.Text>
         <Button to="/create-plan">Create your plan</Button>
       </Hero>
-    </>
+    </PageAnimationWrapper>
   );
 }
 
