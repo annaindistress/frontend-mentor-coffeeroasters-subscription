@@ -9,7 +9,7 @@ const NavigationButton = styled.button`
   background-color: transparent;
   background-image: ${(props) =>
     `url("${BASE_URL}/images/icons/${
-      props.isOpen ? "close" : "hamburger"
+      props.$isOpen ? "close" : "hamburger"
     }.svg")`};
   background-repeat: no-repeat;
   background-position: center;

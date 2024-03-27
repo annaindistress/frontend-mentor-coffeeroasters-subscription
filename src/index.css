@@ -23,6 +23,8 @@
 }
 
 :root {
+  --color-cyan: 179, 81%, 29%;
+  --color-cyan-hover: 179, 55%, 61%;
   --color-cream: 43, 78%, 98%;
   --color-grey: 215, 5%, 54%;
   --color-black: 215, 19%, 25%;
@@ -40,6 +42,7 @@
 body {
   margin: 0;
   font-family: var(--font-basic);
+  font-size: 15px;
   color: hsl(var(--color-black));
   background-color: hsl(var(--color-cream));
 }

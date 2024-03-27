@@ -1,6 +1,8 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import AppLayout from "./pages/AppLayout";
 import Home from "./pages/Home";
+import About from "./pages/About";
+import CreatePlan from "./pages/CreatePlan";
 import { BASE_URL } from "./constants";
 
 function App() {
@@ -11,8 +13,15 @@ function App() {
         children: [
           {
             path: "/",
-
             element: <Home />,
+          },
+          {
+            path: "/about",
+            element: <About />,
+          },
+          {
+            path: "/create-plan",
+            element: <CreatePlan />,
           },
         ],
       },

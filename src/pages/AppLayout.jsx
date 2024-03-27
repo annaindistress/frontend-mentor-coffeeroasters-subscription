@@ -1,11 +1,22 @@
-import { Outlet } from "react-router";
+import { useEffect, useState } from "react";
+import { Outlet, useLocation } from "react-router";
 import Header from "../components/Header";
 
 function AppLayout() {
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const location = useLocation();
+
+  useEffect(
+    function () {
+      setIsOpenMenu(false);
+    },
+    [location.pathname]
+  );
+
   return (
     <>
-      <Header />
-      <main>
+      <Header isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} />
+      <main style={{ marginTop: isOpenMenu ? "90px" : "0" }}>
         <Outlet />
       </main>
     </>

@@ -1,10 +1,12 @@
-import { useState } from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
 
 const StyledHeader = styled.header`
-  position: ${(props) => (props.isOpenMenu ? "fixed" : "static")};
+  position: ${(props) => (props.$isOpenMenu ? "fixed" : "static")};
+  top: 0;
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,15 +27,18 @@ const StyledHeader = styled.header`
   }
 `;
 
-function Header() {
-  const [isOpenMenu, setIsOpenMenu] = useState(false);
-
+function Header({ isOpenMenu, setIsOpenMenu }) {
   return (
-    <StyledHeader isOpenMenu={isOpenMenu}>
+    <StyledHeader $isOpenMenu={isOpenMenu}>
       <Logo />
       <Navigation isOpen={isOpenMenu} setIsOpen={setIsOpenMenu} />
     </StyledHeader>
   );
 }
+
+Header.propTypes = {
+  isOpenMenu: PropTypes.bool,
+  setIsOpenMenu: PropTypes.func,
+};
 
 export default Header;

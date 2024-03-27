@@ -16,7 +16,7 @@ const List = styled.ul`
     top: 99%;
     left: 0;
     right: 0;
-    display: ${(props) => (props.isOpen ? "flex" : "none")};
+    display: ${(props) => (props.$isOpen ? "flex" : "none")};
     flex-direction: column;
     height: calc(100vh - 82px);
     padding: 80px 0;
@@ -37,12 +37,12 @@ function Navigation({ isOpen, setIsOpen }) {
     <nav>
       <NavigationButton
         type="button"
-        isOpen={isOpen}
+        $isOpen={isOpen}
         onClick={() => setIsOpen((state) => !state)}
       >
         {isOpen ? "Close menu" : "Open menu 1"}
       </NavigationButton>
-      <List isOpen={isOpen}>
+      <List $isOpen={isOpen}>
         <li>
           <NavigationLink to="/">Home</NavigationLink>
         </li>
@@ -50,7 +50,7 @@ function Navigation({ isOpen, setIsOpen }) {
           <NavigationLink to="/about">About us</NavigationLink>
         </li>
         <li>
-          <NavigationLink to="/create">Create your plan</NavigationLink>
+          <NavigationLink to="/create-plan">Create your plan</NavigationLink>
         </li>
       </List>
     </nav>
