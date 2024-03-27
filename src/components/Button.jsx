@@ -10,7 +10,7 @@ const Button = styled(Link)`
   font-family: var(--font-fancy);
   font-weight: 900;
   font-size: 18px;
-  line-height: 1.39;
+  line-height: 1.4;
   text-align: center;
   text-decoration: none;
   color: hsl(var(--color-cream));
