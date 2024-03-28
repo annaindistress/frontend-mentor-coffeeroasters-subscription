@@ -18,12 +18,15 @@ const StyledHeader = styled.header`
 
   @media (width >= 768px) {
     position: static;
-    margin-bottom: 13px;
+    margin-bottom: 12px;
     padding: 40px;
   }
 
   @media (width >= 1280px) {
     max-width: 1360px;
+    margin-bottom: 0;
+    padding-top: 44px;
+    padding-bottom: 42px;
   }
 `;
 

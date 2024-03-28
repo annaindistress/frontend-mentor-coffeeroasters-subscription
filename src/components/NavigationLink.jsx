@@ -20,9 +20,13 @@ const NavigationLink = styled(NavLink)`
 
   @media (width >= 768px) {
     font-weight: 700;
-    font-size: 12px;
+    font-size: 14px;
     text-transform: uppercase;
     color: hsl(var(--color-grey));
+  }
+
+  @media (width >= 1280px) {
+    font-size: 13px;
   }
 
   @media (hover: hover) and (pointer: fine) {

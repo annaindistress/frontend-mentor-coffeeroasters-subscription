@@ -26,12 +26,12 @@ const Hero = styled.section`
   border-radius: 10px;
 
   a {
-    margin-top: 16px;
+    margin-top: 14px;
   }
 
   @media (width >= 768px) {
     width: calc(100% - 80px);
-    margin-bottom: 144px;
+    margin-bottom: 150px;
     padding-inline: 58px;
     text-align: left;
     background-image: ${(props) =>
@@ -49,7 +49,8 @@ const Hero = styled.section`
     min-height: ${(props) =>
       props.$background === "coffeepress" ? "600px" : "450px"};
     margin-bottom: ${(props) =>
-      props.$background === "coffeepress" ? "136px" : "168px"};
+      props.$background === "coffeepress" ? "160px" : "168px"};
+    padding-inline: 86px;
     background-image: ${(props) =>
       `url("${BASE_URL}images/hero/${
         props.$background !== "" ? props.$background : "whitecup"

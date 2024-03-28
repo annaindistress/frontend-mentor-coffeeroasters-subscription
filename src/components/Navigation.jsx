@@ -29,6 +29,11 @@ const List = styled.ul`
 
   @media (width >= 768px) {
     justify-content: flex-end;
+    gap: 30px;
+  }
+
+  @media (width >= 1280px) {
+    gap: 35px;
   }
 `;
 
