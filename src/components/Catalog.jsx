@@ -29,7 +29,7 @@ const StyledCatalog = styled.section`
   margin-bottom: 120px;
 
   @media (width >= 768px) {
-    margin-bottom: 144px;
+    margin-bottom: 140px;
   }
 
   @media (width >= 1280px) {

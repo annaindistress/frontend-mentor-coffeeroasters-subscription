@@ -2,6 +2,7 @@ import PageAnimationWrapper from "../components/PageAnimationWrapper";
 import Hero from "../components/Hero";
 import Button from "../components/Button";
 import Catalog from "../components/Catalog";
+import Advantages from "../components/Advantages";
 
 function Home() {
   return (
@@ -20,6 +21,7 @@ function Home() {
         <Button to="/create-plan">Create your plan</Button>
       </Hero>
       <Catalog />
+      <Advantages />
     </PageAnimationWrapper>
   );
 }
