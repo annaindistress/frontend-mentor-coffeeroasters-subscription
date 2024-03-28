@@ -1,7 +1,8 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import svgr from "vite-plugin-svgr";
 
 export default defineConfig({
   base: "/frontend-mentor-coffeeroasters-subscription/",
-  plugins: [react()],
+  plugins: [svgr(), react()],
 });

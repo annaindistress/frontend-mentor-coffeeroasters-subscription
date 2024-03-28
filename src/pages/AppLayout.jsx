@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Outlet, useLocation } from "react-router";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 function AppLayout() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
@@ -19,6 +20,7 @@ function AppLayout() {
       <main style={{ marginTop: isOpenMenu ? "90px" : "0" }}>
         <Outlet />
       </main>
+      <Footer />
     </>
   );
 }

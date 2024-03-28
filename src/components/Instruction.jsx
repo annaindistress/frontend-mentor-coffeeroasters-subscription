@@ -24,14 +24,17 @@ const Section = styled.section`
   width: calc(100% - 48px);
   max-width: 689px;
   margin-inline: auto;
+  margin-bottom: 118px;
   text-align: center;
 
   @media (width >= 768px) {
+    margin-bottom: 143px;
     text-align: left;
   }
 
   @media (width >= 1280px) {
     max-width: 1110px;
+    margin-bottom: 200px;
   }
 `;
 
