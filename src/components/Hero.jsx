@@ -16,6 +16,7 @@ const Hero = styled.section`
   padding: 100px 24px;
   text-align: center;
   color: hsl(var(--color-cream));
+  background-color: hsl(var(--color-black));
   background-image: ${(props) =>
     `url("${BASE_URL}images/hero/${
       props.$background !== "" ? props.$background : "whitecup"
