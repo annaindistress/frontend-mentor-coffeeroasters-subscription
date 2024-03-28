@@ -18,6 +18,18 @@ const advantages = [
   },
 ];
 
+const AdvantagesSection = styled(Section)`
+  margin-bottom: 718px;
+
+  @media (width >= 768px) {
+    margin-bottom: 432px;
+  }
+
+  @media (width >= 1280px) {
+    margin-bottom: 352px;
+  }
+`;
+
 const AdvantagesTitle = styled(Title)`
   margin-bottom: 24px;
   font-size: 28px;
@@ -26,6 +38,7 @@ const AdvantagesTitle = styled(Title)`
   @media (width >= 768px) {
     font-size: 32px;
     line-height: 1.5;
+    text-align: center;
   }
 
   @media (width >= 1280px) {
@@ -54,7 +67,7 @@ const Lead = styled.p`
 
 const List = styled.ul`
   display: grid;
-  gap: 23px;
+  gap: 26px;
   width: 279px;
   margin: 0 auto -660px;
   padding: 0;
@@ -79,7 +92,7 @@ const Item = styled.li`
   background-image: ${(props) =>
     `url('${BASE_URL}images/icons/${props.$icon}.svg')`};
   background-repeat: no-repeat;
-  background-position: center 25%;
+  background-position: center 24%;
   border-radius: 8px;
 
   @media (width >= 768px) {
@@ -97,30 +110,27 @@ const Item = styled.li`
 
 const ItemTitle = styled(Title)`
   margin-bottom: 24px;
-  font-size: 24px;
-  line-height: 1.4;
 
   @media (width >= 768px) {
     margin-bottom: 15px;
-    text-align: left;
   }
 
   @media (width >= 1280px) {
     margin-bottom: 24px;
-    text-align: center;
   }
 `;
 
 const ItemText = styled.p`
   margin: 0;
-  padding: 0 18px;
-  font-size: 16px;
-  line-height: 1.56;
+  padding: 0 24px;
+  line-height: 1.64;
   text-align: center;
 
   @media (width >= 768px) {
     padding-left: 0;
     padding-right: 18px;
+    font-size: 16px;
+    line-height: 1.56;
     text-align: left;
   }
 
@@ -132,7 +142,7 @@ const ItemText = styled.p`
 
 function Advantages() {
   return (
-    <Section>
+    <AdvantagesSection>
       <AdvantagesTitle as="h2">Why choose us?</AdvantagesTitle>
       <Lead>
         A large part of our role is choosing which particular coffees will be
@@ -147,7 +157,7 @@ function Advantages() {
           </Item>
         ))}
       </List>
-    </Section>
+    </AdvantagesSection>
   );
 }
 

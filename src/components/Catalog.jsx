@@ -61,6 +61,7 @@ const CatalogTitle = styled(Title)`
     margin-bottom: -48px;
     font-size: 96px;
     line-height: 1.2;
+    text-align: center;
     opacity: 0.5;
   }
 
@@ -108,19 +109,14 @@ const Item = styled.li`
 `;
 
 const ItemTitle = styled(Title)`
-  font-size: 24px;
-  line-height: 1.33;
-
   @media (width >= 768px) {
     align-self: end;
     margin-bottom: 0;
     padding-top: 16px;
-    text-align: left;
   }
 
   @media (width >= 1280px) {
     padding-top: 0;
-    text-align: center;
   }
 `;
 

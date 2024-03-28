@@ -3,6 +3,7 @@ import Hero from "../components/Hero";
 import Button from "../components/Button";
 import Catalog from "../components/Catalog";
 import Advantages from "../components/Advantages";
+import Instruction from "../components/Instruction";
 
 function Home() {
   return (
@@ -22,6 +23,7 @@ function Home() {
       </Hero>
       <Catalog />
       <Advantages />
+      <Instruction />
     </PageAnimationWrapper>
   );
 }
