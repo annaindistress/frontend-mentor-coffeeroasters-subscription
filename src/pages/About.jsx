@@ -1,6 +1,7 @@
 import PageAnimationWrapper from "../components/PageAnimationWrapper";
 import Hero from "../components/Hero";
 import Mission from "../components/Mission";
+import Quality from "../components/Quality";
 
 function About() {
   return (
@@ -15,6 +16,7 @@ function About() {
         </Hero.Text>
       </Hero>
       <Mission />
+      <Quality />
     </PageAnimationWrapper>
   );
 }

@@ -42,7 +42,7 @@ const Section = styled.section`
   @media (width >= 1280px) {
     grid-template-columns: 445px 1fr;
     gap: 0 125px;
-    margin-bottom: 256px;
+    margin-bottom: 168px;
 
     &::before {
       height: 520px;
@@ -90,7 +90,7 @@ const Text = styled.p`
 function Mission() {
   return (
     <Section>
-      <MissionTitle>Our commitment</MissionTitle>
+      <MissionTitle as="h2">Our commitment</MissionTitle>
       <Text>
         We’re built on a simple mission and a commitment to doing good along the
         way. We want to make it easy for you to discover and brew the world’s
