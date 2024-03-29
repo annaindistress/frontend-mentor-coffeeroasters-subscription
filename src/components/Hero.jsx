@@ -12,7 +12,8 @@ const Hero = styled.section`
   min-height: ${(props) =>
     props.$background === "coffeepress" ? "500px" : "400px"};
   margin-inline: auto;
-  margin-bottom: 120px;
+  margin-bottom: ${(props) =>
+    props.$background === "coffeepress" ? "120px" : "115px"};
   padding: 100px 24px;
   text-align: center;
   color: hsl(var(--color-cream));
@@ -32,7 +33,8 @@ const Hero = styled.section`
 
   @media (width >= 768px) {
     width: calc(100% - 80px);
-    margin-bottom: 150px;
+    margin-bottom: ${(props) =>
+      props.$background === "coffeepress" ? "150px" : "144px"};
     padding-inline: 58px;
     text-align: left;
     background-image: ${(props) =>
