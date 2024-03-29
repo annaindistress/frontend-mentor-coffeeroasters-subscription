@@ -25,6 +25,7 @@ const Container = styled.section`
   }
 
   @media (width >= 768px) {
+    margin-bottom: 145px;
     padding-top: 160px;
 
     &::before {
@@ -35,6 +36,7 @@ const Container = styled.section`
   }
 
   @media (width >= 1280px) {
+    margin-bottom: 169px;
     padding-top: 88px;
 
     &::before {

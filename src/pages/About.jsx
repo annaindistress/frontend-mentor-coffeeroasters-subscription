@@ -2,6 +2,7 @@ import PageAnimationWrapper from "../components/PageAnimationWrapper";
 import Hero from "../components/Hero";
 import Mission from "../components/Mission";
 import Quality from "../components/Quality";
+import Headquarters from "../components/Headquarters";
 
 function About() {
   return (
@@ -17,6 +18,7 @@ function About() {
       </Hero>
       <Mission />
       <Quality />
+      <Headquarters />
     </PageAnimationWrapper>
   );
 }
