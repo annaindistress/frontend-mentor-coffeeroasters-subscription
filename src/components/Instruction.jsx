@@ -1,6 +1,6 @@
 import styled from "styled-components";
+import PropTypes from "prop-types";
 import Title from "./Title";
-import Button from "./Button";
 
 const instructions = [
   {
@@ -20,42 +20,10 @@ const instructions = [
   },
 ];
 
-const Section = styled.section`
-  width: calc(100% - 48px);
-  max-width: 689px;
-  margin-inline: auto;
-  margin-bottom: 118px;
-  text-align: center;
-
-  @media (width >= 768px) {
-    margin-bottom: 143px;
-    text-align: left;
-  }
-
-  @media (width >= 1280px) {
-    max-width: 1110px;
-    margin-bottom: 200px;
-  }
-`;
-
-const InstructionTitle = styled(Title)`
-  margin-bottom: 79px;
-  color: hsl(var(--color-grey));
-
-  @media (width >= 768px) {
-    margin-bottom: 40px;
-  }
-
-  @media (width >= 1280px) {
-    margin-bottom: 80px;
-    text-align: left;
-  }
-`;
-
 const List = styled.ol`
   display: grid;
   gap: 57px;
-  margin: 0 0 80px;
+  margin: 0;
   padding: 0;
   list-style: none;
   counter-reset: instruction 0;
@@ -64,15 +32,14 @@ const List = styled.ol`
     position: relative;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    margin-bottom: 24px;
 
     &::before {
       content: "";
       position: absolute;
       top: 15px;
-      left: 0;
+      left: 15px;
       display: block;
-      width: 70%;
+      width: 68.5%;
       height: 2px;
       background-color: hsl(var(--color-orange));
     }
@@ -80,7 +47,6 @@ const List = styled.ol`
 
   @media (width >= 1280px) {
     gap: 30px;
-    margin-bottom: 65px;
   }
 `;
 
@@ -115,7 +81,8 @@ const Item = styled.li`
       display: block;
       width: 31px;
       height: 31px;
-      background-color: hsl(var(--color-cream));
+      background-color: ${(props) =>
+        props.$isDark ? "transparent" : "hsl(var(--color-cream))"};
       border: 2px solid hsl(var(--color-cyan));
       border-radius: 50%;
     }
@@ -164,21 +131,21 @@ const Text = styled.p`
   }
 `;
 
-function Instruction() {
+function Instruction({ isDark = false }) {
   return (
-    <Section>
-      <InstructionTitle as="h2">How it works</InstructionTitle>
-      <List>
-        {instructions.map((item) => (
-          <Item key={item.title}>
-            <ItemTitle as="h3">{item.title}</ItemTitle>
-            <Text>{item.description}</Text>
-          </Item>
-        ))}
-      </List>
-      <Button to="/create-plan">Create your plan</Button>
-    </Section>
+    <List>
+      {instructions.map((item) => (
+        <Item key={item.title} $isDark={isDark}>
+          <ItemTitle as="h3">{item.title}</ItemTitle>
+          <Text>{item.description}</Text>
+        </Item>
+      ))}
+    </List>
   );
 }
+
+Instruction.propTypes = {
+  isDark: PropTypes.bool,
+};
 
 export default Instruction;

@@ -1,5 +1,6 @@
 import PageAnimationWrapper from "../components/PageAnimationWrapper";
 import Hero from "../components/Hero";
+import HowToDark from "../components/HowToDark";
 
 function CreatePlan() {
   return (
@@ -12,6 +13,7 @@ function CreatePlan() {
           fresh to your door.
         </Hero.Text>
       </Hero>
+      <HowToDark />
     </PageAnimationWrapper>
   );
 }
