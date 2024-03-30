@@ -5,8 +5,8 @@ import { BASE_URL } from "../constants";
 
 const StyledLink = styled(Link)`
   display: block;
-  width: ${(props) => (props.$footer ? "218px" : "163px")};
-  max-width: 100%;
+  max-width: ${(props) => (props.$footer ? "218px" : "163px")};
+  width: 100%;
   margin-inline: ${(props) => (props.$footer ? "auto" : "initial")};
   outline: none;
 

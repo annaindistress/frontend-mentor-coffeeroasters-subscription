@@ -15,6 +15,7 @@ const Button = styled(Link)`
   text-decoration: none;
   color: hsl(var(--color-cream));
   background-color: hsl(var(--color-cyan));
+  border: 0;
   border-radius: 6px;
   outline: none;
 

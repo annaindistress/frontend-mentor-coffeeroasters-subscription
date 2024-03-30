@@ -1,6 +1,7 @@
 import PageAnimationWrapper from "../components/PageAnimationWrapper";
 import Hero from "../components/Hero";
 import HowToDark from "../components/HowToDark";
+import Order from "../components/Order";
 
 function CreatePlan() {
   return (
@@ -14,6 +15,7 @@ function CreatePlan() {
         </Hero.Text>
       </Hero>
       <HowToDark />
+      <Order />
     </PageAnimationWrapper>
   );
 }

@@ -39,7 +39,7 @@ const List = styled.ol`
       top: 15px;
       left: 15px;
       display: block;
-      width: 68.5%;
+      width: 67.7%;
       height: 2px;
       background-color: hsl(var(--color-orange));
     }
@@ -47,6 +47,10 @@ const List = styled.ol`
 
   @media (width >= 1280px) {
     gap: 30px;
+
+    &::before {
+      width: 68.5%;
+    }
   }
 `;
 
