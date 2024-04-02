@@ -50,7 +50,9 @@ The interactive subscription page has a number of specific behaviours, which are
   - If Every 2 Weeks is selected, the Order Summary modal should show the per shipment price multiplied by 2. For example, if 250g weight is selected, the price would be $19.20/month
   - If Every Month is selected, the Order Summary modal should show the per shipment price multiplied by 1. For example, if 250g weight is selected, the price would be $12.00/month
 
-### Screenshot
+## Screenshot
+
+![](./screenshot.png)
 
 ## Links
 
@@ -58,6 +60,16 @@ The interactive subscription page has a number of specific behaviours, which are
 - [Live Site URL](https://annaindistress.github.io/frontend-mentor-coffeeroasters-subscription/)
 
 ### Built with
+
+- Semantic HTML5 markup
+- Mobile-first workflow
+- CSS custom properties
+- Vite
+- React
+- React Router
+- Redux Toolkit
+- Framer Motion
+- styled-components
 
 ## Author
 
