@@ -10,7 +10,7 @@ This is a solution to the [coffeeroasters subscription site challenge on Fronten
 - [Built with](#built-with)
 - [Author](#author)
 
-### The challenge
+## The challenge
 
 Users should be able to:
 
