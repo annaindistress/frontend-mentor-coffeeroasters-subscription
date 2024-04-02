@@ -59,7 +59,7 @@ The interactive subscription page has a number of specific behaviours, which are
 - [Solution URL](https://github.com/annaindistress/frontend-mentor-coffeeroasters-subscription)
 - [Live Site URL](https://annaindistress.github.io/frontend-mentor-coffeeroasters-subscription/)
 
-### Built with
+## Built with
 
 - Semantic HTML5 markup
 - Mobile-first workflow
