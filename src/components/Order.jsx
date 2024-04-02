@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 import ScrollToHashElement from "./ScrollToHashElement";
 import Button from "./Button";
 import OrderNavigation from "./OrderNavigation";
 import OrderItem from "./OrderItem.jsx";
 import OrderSummary from "./OrderSummary.jsx";
-import { getOptions } from "./orderSlice.js";
+import { calculatePrice, getOptions } from "./orderSlice.js";
 import { orderData } from "../orderData.js";
 
 const Form = styled.form`
@@ -46,10 +47,12 @@ const hasEmptyValue = (obj) => {
   return false;
 };
 
-function Order() {
+function Order({ setIsOpenModal }) {
   const [openDropdowns, setOpenDropDowns] = useState([orderData.at(0).id]);
   const options = useSelector(getOptions);
   const isDisabled = hasEmptyValue(options);
+
+  const dispatch = useDispatch();
 
   function handleOpenDropdowns(id) {
     if (!openDropdowns.includes(id)) {
@@ -57,8 +60,14 @@ function Order() {
     }
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    dispatch(calculatePrice());
+    setIsOpenModal(true);
+  }
+
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <ScrollToHashElement />
       <OrderNavigation handleDropdowns={handleOpenDropdowns} />
       {orderData.map((item) => (
@@ -76,5 +85,9 @@ function Order() {
     </Form>
   );
 }
+
+Order.propTypes = {
+  setIsOpenModal: PropTypes.func,
+};
 
 export default Order;

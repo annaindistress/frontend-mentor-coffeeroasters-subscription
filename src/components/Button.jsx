@@ -18,6 +18,7 @@ const Button = styled(Link)`
   border: 0;
   border-radius: 6px;
   outline: none;
+  cursor: pointer;
 
   &:disabled {
     background-color: hsl(var(--color-grey-light));

@@ -1,9 +1,13 @@
+import { useState } from "react";
 import PageAnimationWrapper from "../components/PageAnimationWrapper";
 import Hero from "../components/Hero";
 import HowToDark from "../components/HowToDark";
 import Order from "../components/Order";
+import Modal from "../components/Modal";
 
 function CreatePlan() {
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
   return (
     <PageAnimationWrapper>
       <Hero $background="blackcup">
@@ -15,7 +19,8 @@ function CreatePlan() {
         </Hero.Text>
       </Hero>
       <HowToDark />
-      <Order />
+      <Order setIsOpenModal={setIsOpenModal} />
+      <Modal isOpen={isOpenModal} setIsOpen={setIsOpenModal} />
     </PageAnimationWrapper>
   );
 }

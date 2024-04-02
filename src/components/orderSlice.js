@@ -8,7 +8,7 @@ const initialState = {
     grindOption: "",
     deliveries: "",
   },
-  shipmentPrice: 0,
+  shipmentPrice: "",
   finalPrice: 0,
 };
 
@@ -35,6 +35,21 @@ const orderSlice = createSlice({
     updateShipmentPrice(state, action) {
       state.shipmentPrice = action.payload;
     },
+    calculatePrice(state) {
+      switch (state.options.deliveries) {
+        case "Every week": {
+          state.finalPrice = parseFloat(state.shipmentPrice) * 4;
+          break;
+        }
+        case "Every 2 weeks": {
+          state.finalPrice = parseFloat(state.shipmentPrice) * 2;
+          break;
+        }
+        default: {
+          state.finalPrice = parseFloat(state.shipmentPrice);
+        }
+      }
+    },
     clear() {
       return initialState;
     },
@@ -43,6 +58,9 @@ const orderSlice = createSlice({
 
 export default orderSlice.reducer;
 
-export const { updateOption, updateShipmentPrice, clear } = orderSlice.actions;
+export const { updateOption, updateShipmentPrice, calculatePrice, clear } =
+  orderSlice.actions;
 
 export const getOptions = (state) => state.order.options;
+
+export const getFinalPrice = (state) => state.order.finalPrice;
