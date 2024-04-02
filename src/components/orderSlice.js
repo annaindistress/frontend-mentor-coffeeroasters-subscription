@@ -8,6 +8,7 @@ const initialState = {
     grindOption: "",
     deliveries: "",
   },
+  shipmentPrice: 0,
   finalPrice: 0,
 };
 
@@ -31,6 +32,9 @@ const orderSlice = createSlice({
         }
       }
     },
+    updateShipmentPrice(state, action) {
+      state.shipmentPrice = action.payload;
+    },
     clear() {
       return initialState;
     },
@@ -39,6 +43,6 @@ const orderSlice = createSlice({
 
 export default orderSlice.reducer;
 
-export const { updateOption, clear } = orderSlice.actions;
+export const { updateOption, updateShipmentPrice, clear } = orderSlice.actions;
 
 export const getOptions = (state) => state.order.options;

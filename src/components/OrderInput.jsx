@@ -2,7 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import Title from "./Title";
-import { getOptions, updateOption } from "./orderSlice";
+import { getOptions, updateOption, updateShipmentPrice } from "./orderSlice";
+import { PRICES } from "../constants";
 
 const Item = styled.li``;
 
@@ -68,8 +69,21 @@ function OrderInput({ option, id }) {
   const options = useSelector(getOptions);
   const inputId = `${id}-${option.title.toLowerCase().replace(/\s+/g, "")}`;
 
+  let newDescription = "";
+  let newPrice = "";
+  const oldPrice = (option.description.match(/-?\d+\.\d+/g) || []).at(0);
+
+  if (id === "deliveries" && options.quantity !== "") {
+    newPrice = PRICES[options.quantity][option.title];
+    newDescription = option.description.replace(oldPrice, newPrice);
+  }
+
   function handleSelection() {
     dispatch(updateOption({ id, value: option.title }));
+
+    if (id === "deliveries") {
+      dispatch(updateShipmentPrice(newPrice !== "" ? newPrice : oldPrice));
+    }
   }
 
   return (
@@ -84,7 +98,9 @@ function OrderInput({ option, id }) {
       />
       <Label htmlFor={inputId}>
         <StyledTitle as="span">{option.title}</StyledTitle>
-        <Text>{option.description}</Text>
+        <Text>
+          {newDescription !== "" ? newDescription : option.description}
+        </Text>
       </Label>
     </Item>
   );
