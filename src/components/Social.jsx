@@ -40,17 +40,17 @@ function Social() {
   return (
     <List>
       <li>
-        <Link href="#" target="_blank">
+        <Link href="http://facebook.com" target="_blank">
           <Facebook />
         </Link>
       </li>
       <li>
-        <Link href="#" target="_blank">
+        <Link href="http://twitter.com" target="_blank">
           <Twitter />
         </Link>
       </li>
       <li>
-        <Link href="#" target="_blank">
+        <Link href="http://instagram.com" target="_blank">
           <Instagram />
         </Link>
       </li>
