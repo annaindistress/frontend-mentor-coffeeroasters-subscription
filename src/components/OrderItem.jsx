@@ -24,7 +24,7 @@ const Question = styled(Title)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 32px;
+  gap: 60px;
   line-height: 1.17;
   text-align: left;
   color: hsl(var(--color-grey));
@@ -69,7 +69,7 @@ const Question = styled(Title)`
 const List = styled.ul`
   display: grid;
   gap: 16px;
-  margin: 31px 0 0;
+  margin: 32px 0 0;
   padding: 0;
   list-style: none;
 
@@ -115,7 +115,7 @@ function OrderItem({ item, openDropdowns, handleDropdowns }) {
       ref={itemRef}
       open={isOpen}
       disabled={isDisabled}
-      onClick={handleOpen}
+      onToggle={handleOpen}
     >
       <Question as="summary">
         {question}

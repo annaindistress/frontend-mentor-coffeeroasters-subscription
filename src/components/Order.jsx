@@ -5,6 +5,7 @@ import ScrollToHashElement from "./ScrollToHashElement";
 import Button from "./Button";
 import OrderNavigation from "./OrderNavigation";
 import OrderItem from "./OrderItem.jsx";
+import OrderSummary from "./OrderSummary.jsx";
 import { getOptions } from "./orderSlice.js";
 import { orderData } from "../orderData.js";
 
@@ -14,15 +15,17 @@ const Form = styled.form`
   width: calc(100% - 48px);
   max-width: 1110px;
   margin-inline: auto;
-  margin-bottom: 119px;
+  margin-bottom: 120px;
 
   @media (width >= 768px) {
     width: calc(100% - 80px);
+    margin-bottom: 143px;
   }
 
   @media (width >= 1280px) {
     grid-template-columns: 255px 1fr;
     gap: 87px 125px;
+    margin-bottom: 167px;
   }
 `;
 
@@ -66,6 +69,7 @@ function Order() {
           handleDropdowns={handleOpenDropdowns}
         />
       ))}
+      <OrderSummary />
       <OrderButton as="button" type="submit" disabled={isDisabled}>
         Create my plan!
       </OrderButton>

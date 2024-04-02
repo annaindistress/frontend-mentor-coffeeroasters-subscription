@@ -11,7 +11,7 @@ const Container = styled.div`
   @media (width >= 1280px) {
     display: block;
     grid-auto-rows: max-content;
-    grid-row: span 6;
+    grid-row: span 7;
   }
 `;
 
