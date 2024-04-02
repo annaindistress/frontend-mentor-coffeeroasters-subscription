@@ -7,6 +7,7 @@ import Title from "./Title.jsx";
 import OrderInput from "./OrderInput.jsx";
 import Arrow from "../assets/arrow.svg?react";
 import { getOptions } from "./orderSlice.js";
+import { orderData } from "../orderData.js";
 
 const Item = styled.details`
   &[open] summary svg {
@@ -97,7 +98,10 @@ function OrderItem({ item, openDropdowns, handleDropdowns }) {
   const itemRef = useRef();
   const isDisabled =
     id === "grindOption" && stateOptions.preferences === "Capsule";
-  const isOpen = openDropdowns.includes(id) || stateOptions[id] !== "";
+  const isOpen =
+    openDropdowns.includes(id) ||
+    stateOptions[id] !== "" ||
+    (openDropdowns.length === 0 && id === orderData.at(0).id);
 
   useEffect(
     function () {
@@ -110,7 +114,10 @@ function OrderItem({ item, openDropdowns, handleDropdowns }) {
 
   function handleOpen() {
     handleDropdowns(id);
-    navigate(`/create-plan#${id}`);
+
+    if (openDropdowns.length !== 0 && itemRef.current.hasAttribute("open")) {
+      navigate(`/create-plan#${id}`);
+    }
   }
 
   return (

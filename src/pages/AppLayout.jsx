@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Outlet, useLocation } from "react-router";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import ScrollToTop from "../components/ScrollToTop";
 
 function AppLayout() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
@@ -21,6 +22,7 @@ function AppLayout() {
         <Outlet />
       </main>
       <Footer />
+      <ScrollToTop />
     </>
   );
 }

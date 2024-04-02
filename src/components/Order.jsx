@@ -48,7 +48,7 @@ const hasEmptyValue = (obj) => {
 };
 
 function Order({ setIsOpenModal }) {
-  const [openDropdowns, setOpenDropDowns] = useState([orderData.at(0).id]);
+  const [openDropdowns, setOpenDropDowns] = useState([]);
   const options = useSelector(getOptions);
   const isDisabled = hasEmptyValue(options);
 
