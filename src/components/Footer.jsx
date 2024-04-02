@@ -60,7 +60,7 @@ const Link = styled(NavLink)`
   color: hsl(var(--color-grey));
   outline: none;
 
-  &:focus {
+  &:focus-visible {
     color: hsl(var(--color-cream));
   }
 

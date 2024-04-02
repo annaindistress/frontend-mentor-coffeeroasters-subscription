@@ -25,7 +25,7 @@ const Link = styled.a`
     display: block;
   }
 
-  &:focus {
+  &:focus-visible {
     color: hsl(var(--color-orange));
   }
 

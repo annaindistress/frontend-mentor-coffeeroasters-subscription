@@ -1,10 +1,10 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import AppLayout from "./pages/AppLayout";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import CreatePlan from "./pages/CreatePlan";
 import { BASE_URL } from "./constants";
-import { AnimatePresence } from "framer-motion";
 
 function App() {
   const router = createBrowserRouter(

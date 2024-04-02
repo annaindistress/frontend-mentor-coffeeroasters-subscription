@@ -19,12 +19,16 @@ const Button = styled(Link)`
   border-radius: 6px;
   outline: none;
 
-  &:focus {
+  &:disabled {
+    background-color: hsl(var(--color-grey-light));
+  }
+
+  &:focus-visible {
     background-color: hsl(var(--color-cyan-hover));
   }
 
   @media (hover: hover) and (pointer: fine) {
-    &:hover {
+    &:hover:not(:disabled) {
       background-color: hsl(var(--color-cyan-hover));
     }
   }

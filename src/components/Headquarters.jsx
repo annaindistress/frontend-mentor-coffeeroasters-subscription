@@ -116,7 +116,7 @@ const ItemLink = styled.a`
   text-decoration: none;
   color: inherit;
 
-  &:focus {
+  &:focus-visible {
     color: hsl(var(--color-cyan));
   }
 

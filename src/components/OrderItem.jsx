@@ -1,61 +1,63 @@
+import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import Title from "./Title";
-import OrderInput from "./OrderInput";
-import { BASE_URL } from "../constants";
+import Title from "./Title.jsx";
+import OrderInput from "./OrderInput.jsx";
+import Arrow from "../assets/arrow.svg?react";
+import { getOptions } from "./orderSlice.js";
 
-const StyledOrderItem = styled.details`
-  &[open] summary::after {
-    top: 20px;
+const Item = styled.details`
+  &[open] summary svg {
     transform: rotate(180deg);
   }
 
-  @media (width >= 768px) {
-    &[open] summary::after {
-      top: 15px;
-    }
-  }
-
-  @media (width >= 1280px) {
-    &[open] summary::after {
-      top: 18px;
-    }
+  &[disabled] summary {
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.5;
   }
 `;
 
-const Summary = styled(Title)`
-  position: relative;
-  padding-right: 75px;
+const Question = styled(Title)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
   line-height: 1.17;
   text-align: left;
   color: hsl(var(--color-grey));
+  outline: none;
   cursor: pointer;
 
   &::marker {
     content: none;
   }
 
-  &::after {
-    content: "";
-    position: absolute;
-    top: 30px;
-    right: 0;
-    transform: translateY(-50%);
-    display: block;
-    width: 18px;
-    height: 13px;
-    background-image: ${`url("${BASE_URL}/images/icons/arrow.svg")`};
-    background-repeat: no-repeat;
-    background-size: 100% auto;
+  svg {
+    min-width: 19px;
+    height: 12px;
+    color: hsl(var(--color-cyan));
+  }
+
+  &:focus-visible {
+    svg {
+      color: hsl(var(--color-cyan-hover));
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      svg {
+        color: hsl(var(--color-cyan-hover));
+      }
+    }
   }
 
   @media (width >= 768px) {
     font-size: 32px;
     line-height: 1.5;
-
-    &::after {
-      top: 25px;
-    }
   }
 
   @media (width >= 1280px) {
@@ -83,23 +85,55 @@ const List = styled.ul`
   }
 `;
 
-function OrderItem({ item }) {
-  const { title, question, options } = item;
+function OrderItem({ item, openDropdowns, handleDropdowns }) {
+  const { id, question, options } = item;
+  const navigate = useNavigate();
+  const stateOptions = useSelector(getOptions);
+
+  const itemRef = useRef();
+  const isDisabled =
+    id === "grindOption" && stateOptions.preferences === "Capsule";
+  const isOpen = openDropdowns.includes(id) || stateOptions[id] !== "";
+
+  useEffect(
+    function () {
+      if (isOpen && isDisabled) {
+        itemRef.current.removeAttribute("open");
+      }
+    },
+    [isDisabled, isOpen]
+  );
+
+  function handleOpen() {
+    handleDropdowns(id);
+    navigate(`/create-plan#${id}`);
+  }
 
   return (
-    <StyledOrderItem>
-      <Summary as="summary">{question}</Summary>
+    <Item
+      id={id}
+      ref={itemRef}
+      open={isOpen}
+      disabled={isDisabled}
+      onClick={handleOpen}
+    >
+      <Question as="summary">
+        {question}
+        <Arrow />
+      </Question>
       <List>
         {options.map((option) => (
-          <OrderInput key={option.title} option={option} title={title} />
+          <OrderInput key={option.title} option={option} id={id} />
         ))}
       </List>
-    </StyledOrderItem>
+    </Item>
   );
 }
 
 OrderItem.propTypes = {
   item: PropTypes.object,
+  openDropdowns: PropTypes.array,
+  handleDropdowns: PropTypes.func,
 };
 
 export default OrderItem;

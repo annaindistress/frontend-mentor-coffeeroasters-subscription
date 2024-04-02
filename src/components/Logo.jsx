@@ -11,7 +11,7 @@ const StyledLink = styled(Link)`
   outline: none;
 
   @media (width >= 768px) {
-    width: 236px;
+    max-width: 236px;
   }
 
   @media (width >= 1280px) {

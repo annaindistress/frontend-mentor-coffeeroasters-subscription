@@ -7,7 +7,7 @@ const NavigationLink = styled(NavLink)`
   color: inherit;
   outline: none;
 
-  &:focus {
+  &:focus-visible {
     color: hsl(var(--color-black));
   }
 

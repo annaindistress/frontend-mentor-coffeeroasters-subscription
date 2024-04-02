@@ -1,6 +1,8 @@
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import Title from "./Title";
+import { getOptions, updateOption } from "./orderSlice";
 
 const Item = styled.li``;
 
@@ -8,6 +10,10 @@ const Input = styled.input`
   &:checked ~ label {
     color: hsl(var(--color-cream));
     background-color: hsl(var(--color-cyan));
+  }
+
+  &:focus-visible ~ label {
+    background-color: hsl(var(--color-orange));
   }
 `;
 
@@ -18,10 +24,6 @@ const Label = styled.label`
   background-color: hsl(var(--color-cream-dark));
   border-radius: 8px;
   cursor: pointer;
-
-  &:focus {
-    background-color: hsl(var(--color-orange));
-  }
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
@@ -61,14 +63,26 @@ const Text = styled.span`
   }
 `;
 
-function OrderInput({ option, title }) {
-  const id = option.title.toLowerCase().replace(/\s+/g, "");
-  const name = title.toLowerCase().replace(/\s+/g, "");
+function OrderInput({ option, id }) {
+  const dispatch = useDispatch();
+  const options = useSelector(getOptions);
+  const inputId = `${id}-${option.title.toLowerCase().replace(/\s+/g, "")}`;
+
+  function handleSelection() {
+    dispatch(updateOption({ id, value: option.title }));
+  }
 
   return (
     <Item>
-      <Input type="radio" id={id} name={name} className="sr-only" />
-      <Label htmlFor={id}>
+      <Input
+        type="radio"
+        id={inputId}
+        name={id}
+        className="sr-only"
+        checked={options[id] === option.title}
+        onChange={handleSelection}
+      />
+      <Label htmlFor={inputId}>
         <StyledTitle as="span">{option.title}</StyledTitle>
         <Text>{option.description}</Text>
       </Label>
@@ -78,7 +92,7 @@ function OrderInput({ option, title }) {
 
 OrderInput.propTypes = {
   option: PropTypes.object,
-  title: PropTypes.string,
+  id: PropTypes.string,
 };
 
 export default OrderInput;
