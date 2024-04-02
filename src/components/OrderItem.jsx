@@ -35,6 +35,10 @@ const Question = styled(Title)`
     content: none;
   }
 
+  &::-webkit-details-marker {
+    display: none;
+  }
+
   svg {
     min-width: 19px;
     height: 12px;
